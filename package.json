@@ -1,7 +1,7 @@
 {
   "name": "stealth-address-generator",
   "version": "0.1.0",
-  "homepage": "https://ergomixer.github.io/stealth/"
+  "homepage": "https://ergomixer.github.io/stealth/",
   "dependencies": {
     "@fleet-sdk/core": "^0.2.3",
     "@testing-library/jest-dom": "^5.17.0",
