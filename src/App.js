@@ -74,27 +74,37 @@ function App() {
     return (
         <div className="container">
             <div className="header">
-            <img src={`${process.env.PUBLIC_URL}/img.png`} id="image-logo"/>
+                <img className="imageStealthPK" src={`${process.env.PUBLIC_URL}/img.png`} id="image-logo"/>
                 <div className="header-texts">
-                    <h1>Stealth Address Generator</h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem Ipsum.</p>
+                    <h1 className="headerStealth">Stealth Address Generator</h1>
+                    <p className="stealthPKText">
+                        <b>What is a stealth PK?</b>
+                        <text> A receiver can generate a Stealth Public Key to preserve his privacy.
+                            It starts with "stealth" word and allows any sender to create new payment addresses for this
+                            receiver without any interaction.
+                        </text>
+                        <br/>
+
+                        <b>How to generate a stealth PK?</b>
+                        <text> It can be generated in the ErgoMixer.</text>
+                        <br/>
+
+                        <b>Can I send funds to a stealth PK?</b>
+                        <text> No, use this address generator to create a new payment address and use it as the
+                            receiver's address in any wallet.
+                        </text>
+                    </p>
                 </div>
             </div>
             <label htmlFor="stealthPK" className="margin">Receiver's Stealth PK:</label>
-            <input
-                type="text"
+            <textarea
+                placeholder="Enter Input"
                 className="margin"
                 id="stealthPK"
                 value={stealthPK}
                 onChange={handleChange}
             />
-            <button className="margin" onClick={generateAddress}>Generate Address</button>
+            <button className="margin" onClick={generateAddress}>Generate New Address</button>
             {
                 result &&
                 <div className="result-container margin">
