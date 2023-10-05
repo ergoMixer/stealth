@@ -18,6 +18,7 @@ code {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100%;
 }
 
 .margin {
@@ -27,10 +28,51 @@ code {
 .header {
   display: flex;
   max-width: 75vmin;
+  width: 80%;
+  gap: 15px;
 }
 
-.header-texts {
+.stealthPKText {
+  text-align: justify;
+  text-justify: auto;
+}
+@media only screen and (max-width: 500px) {
+  textarea {
+    width: 50vmin !important;
+    height: 5rem !important;
+    font-size: 1rem !important;
+  }
+  .header {
+    flex-direction: column;
+    width: 90%;
+    gap: 25px;
+  }
+  .imageStealthPK {
+    transform: scale(1.8);
+  }
+  .headerStealth {
+    font-size: 28px;
+    text-align: center;
+  }
+  .result-container{
+    transform: scale(60%);
+  }
+  #image-logo {
+    margin-right: 0 !important;
+    margin-top: 2rem;
+  }
+}
 
+@media only screen and (max-width: 400px) {
+  .imageStealthPK {
+    transform: scale(2);
+  }
+  .headerStealth {
+    font-size: 22px;
+  }
+  .result-container{
+    transform: scale(80%);
+  }
 }
 
 .result {
@@ -49,10 +91,10 @@ code {
   align-items: center;
 }
 
-input {
-  width: 75vmin;
-  height: 2rem;
-  font-size: 1.3rem;
+textarea {
+  width: 80vmin;
+  height: 3rem;
+  font-size: 1.2rem;
 }
 
 #image-logo {
