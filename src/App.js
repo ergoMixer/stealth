@@ -74,7 +74,7 @@ function App() {
     return (
         <div className="container">
             <div className="header">
-                <img src="/img.png" id="image-logo"/>
+            <img src={`${process.env.PUBLIC_URL}/img.png`} id="image-logo"/>
                 <div className="header-texts">
                     <h1>Stealth Address Generator</h1>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
