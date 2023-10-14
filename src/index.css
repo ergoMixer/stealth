@@ -32,7 +32,7 @@ code {
   gap: 15px;
 }
 
-.stealthPKText {
+.stealthAddressText {
   text-align: justify;
   text-justify: auto;
 }
@@ -47,7 +47,7 @@ code {
     width: 90%;
     gap: 25px;
   }
-  .imageStealthPK {
+  .imageStealthAddress {
     transform: scale(1.8);
   }
   .headerStealth {
@@ -64,7 +64,7 @@ code {
 }
 
 @media only screen and (max-width: 400px) {
-  .imageStealthPK {
+  .imageStealthAddress {
     transform: scale(2);
   }
   .headerStealth {
@@ -104,9 +104,9 @@ textarea {
 }
 
 button {
-  width: 14rem;
+  width: 16rem;
   height: 3.5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background: rgb(0,91,201);
   background: linear-gradient(90deg, rgba(0,91,201,0.8) 0%, rgba(0,176,103,0.8) 100%);
   color: white;

@@ -1,6 +1,6 @@
 {
-  "short_name": "Stealth Address Generator",
-  "name": "Stealth Address Generator",
+  "short_name": "Stealth Payment Address Generator",
+  "name": "Stealth Payment Address Generator",
   "icons": [
     {
       "src": "favicon.ico",
