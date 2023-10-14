@@ -32,6 +32,7 @@ function validateStealthAddress(stealthAddress) {
 function App() {
     const [stealthAddress, setStealthAddress] = useState("");
     const [result, setResult] = useState("");
+    const [isError, setIsError] = useState(false);
 
     function handleChange(event) {
         setStealthAddress(event.target.value)
@@ -61,17 +62,20 @@ function App() {
                 uy
             ).toAddress(Network.Mainnet);
             setResult(`${generatedPaymentAddress.toString(Network.Mainnet)}`);
+            setIsError(false)
         } catch (error) {
             setResult(`${error}`);
+            setIsError(true)
         }
     }
 
     return (
         <div className="container">
             <div className="header">
-                <img className="imageStealthAddress" src={`${process.env.PUBLIC_URL}/img.png`} id="image-logo" alt={""}/>
+                <img className="imageStealthAddress" src={`${process.env.PUBLIC_URL}/img.png`} id="image-logo"
+                     alt={""}/>
                 <div className="header-texts">
-                    <h1 className="headerStealth">Stealth Payment Address Generator</h1>
+                    <h2 className="headerStealth">Stealth Payment Address Generator</h2>
                     <p className="stealthAddressText">
                         <b>What is a stealth Address?</b>
                         <text> A receiver can generate a Stealth Address to preserve his privacy.
@@ -96,6 +100,7 @@ function App() {
                 placeholder="Enter Input"
                 className="margin"
                 id="stealthAddress"
+                rows={2}
                 value={stealthAddress}
                 onChange={handleChange}
             />
@@ -103,24 +108,30 @@ function App() {
             {
                 result &&
                 <div className="result-container margin">
-                    <CopyToClipboard
-                        render={({copy}) => (
-                            <div className="result" onClick={
-                                () => {
-                                    copy(result)
-                                    alert("Copied to clipboard!")
-                                }
-                            }>
-                                <p>{result}</p>
+                    {isError ? <div className="no-result">
+                        <p>{result}</p>
+                    </div> : (
+                        <div className="result-container margin">
+                            <CopyToClipboard
+                                render={({copy}) => (
+                                    <div className="result" onClick={
+                                        () => {
+                                            copy(result)
+                                            alert("Copied to clipboard!")
+                                        }
+                                    }>
+                                        <p>{result}</p>
+                                    </div>
+                                )}
+                            />
+                            <div>
+                                <QRCode
+                                    size={150}
+                                    value={`https://explorer.ergoplatform.com/payment-request?address=${result}`}
+                                />
                             </div>
-                        )}
-                    />
-                    <div>
-                        <QRCode
-                            size={150}
-                            value={`https://explorer.ergoplatform.com/payment-request?address=${result}`}
-                        />
-                    </div>
+                        </div>
+                    )}
                 </div>
             }
 
